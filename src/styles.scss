@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+$bg: #f1f1f1;
+$toolbar_link: #fff;
+$link: #4d4d4d;
+
+html,
+body {
+  background: $bg;
+  font-family: "Roboto";
+  font-size: 12px;
+}
+table {
+  a {
+    color: $link;
+    font-weight: bold;
+  }
+}
+.toolbar {
+  a {
+    color: $toolbar_link!important;
+    border-left: 1px solid white;
+    margin-left: 10px;
+    padding-left: 10px;
+    &:hover {
+      text-decoration: underline!important;
+    }
+  }
+}

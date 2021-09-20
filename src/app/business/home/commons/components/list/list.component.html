@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row py-3">
+    <div class="col-12">
+      <p-table
+        [value]="items"
+        [paginator]="true"
+        styleClass="p-datatable-striped p-datatable-gridlines"
+        [rows]="rows"
+        [showCurrentPageReport]="true"
+        responsiveLayout="scroll"
+        currentPageReportTemplate="Mostrar {first} a {last} de {totalRecords} entradas"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Title</th>
+            <th>about</th>
+            <th class="action">Action</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+          <tr *ngIf="!load">
+            <td><p-skeleton></p-skeleton></td>
+            <td><p-skeleton></p-skeleton></td>
+            <td><p-skeleton></p-skeleton></td>
+          </tr>
+          <tr *ngIf="load">
+            <td>
+              <a href="{{ item.accessURL }}" target="blank">
+                {{ item.title }}</a
+              >
+            </td>
+            <td>
+              {{ item._about }}
+              <a href="{{ item._about }}" target="blank">ver</a>
+            </td>
+            <td class="action">
+              <button class="btn btn-primary" (click)="edit(item.id)">Edit</button>
+              <button class="btn btn-warning" (click)="delete(item.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+          <p-button
+            type="button"
+            icon="pi pi-plus"
+            styleClass="p-button-text"
+          ></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+          <p-button
+            type="button"
+            icon="pi pi-cloud"
+            styleClass="p-button-text"
+          ></p-button>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

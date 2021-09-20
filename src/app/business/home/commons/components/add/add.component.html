@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="offset-2 col-8">
+    <form [formGroup]="form">
+        <div class="p-inputgroup p-md-4">
+        <h4>Add</h4>
+      </div>
+      <input type="hidden" formControlName="id">
+      <div class="p-inputgroup p-md-3">
+        <span class="p-float-label">
+          <input id="float-input" formControlName="title" type="text" pInputText required/>
+          <label for="float-input">Title</label>
+        </span>
+        <div class="__error" *ngIf="form.get('title').errors && form.get('title').dirty">
+            <span *ngIf="form.get('title').hasError('required')">requerido</span>
+        </div>
+      </div>
+      <div class="p-inputgroup p-md-3">
+        <span class="p-float-label">
+          <input id="float-input" formControlName="_about" type="text" pInputText required/>
+          <label for="float-input">About</label>
+        </span>
+        <div class="__error" *ngIf="form.get('_about').errors && form.get('_about').dirty">
+            <span *ngIf="form.get('_about').hasError('required')">requerido</span>
+        </div>
+
+      </div>
+      <div class="p-inputgroup p-md-3">
+        <span class="p-float-label">
+          <input id="float-input" formControlName="accessURL" type="text" pInputText required/>
+          <label for="float-input">AccessURL</label>
+        </span>
+        <div class="__error" *ngIf="form.get('accessURL').errors && form.get('accessURL').dirty">
+            <span *ngIf="form.get('accessURL').hasError('required')">requerido</span>
+        </div>
+      </div>
+      <div class="p-inputgroup p-md-2">
+        <button (click)="save()" class="btn btn-primary" [disabled]="form.invalid">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
